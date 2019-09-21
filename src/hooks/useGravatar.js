@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import md5 from "md5";
 
-const GRAVATAR_PROFILE_URL =
-  "https://en.gravatar.com/7b672441a51dcd3e6e10178ac6d7dd13.json";
+const EMAIL = "jesse.cy.zhou@gmail.com";
+const GRAVATAR_PROFILE_URL = `https://en.gravatar.com/${md5(EMAIL)}.json`;
 
 const useGravatar = () => {
   const [profile, setProfile] = useState({});

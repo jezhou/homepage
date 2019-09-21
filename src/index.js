@@ -17,7 +17,8 @@ function App() {
       aboutMe,
       currentLocation,
       name: { formatted: fullName },
-      urls
+      urls,
+      emails: [{ value: personalEmail }]
     } = data.entry[0];
 
     return (
@@ -31,18 +32,21 @@ function App() {
         </div>
         <div className="item-1">
           <h1 className="title">{preferredUsername || displayName}</h1>
-          <br />
           <p>Livin' it up in {currentLocation}.</p>
           <p>{aboutMe}</p>
           {urls.map(({ value, title }) => (
             <div>
-              <a href={value}>{title}</a>
+              <a className="external-link" href={value}>
+                {title}
+              </a>
             </div>
           ))}
-
-          <p className="credits">
-            <small>Made with CodeSandbox and Gravatar</small>
-          </p>
+          <br />
+          <hr />
+          <br />
+          <a className="external-link" href={`mailto:${personalEmail}`}>
+            email me
+          </a>
         </div>
       </div>
     );

@@ -23,6 +23,20 @@ a {
   font-family: "Open Sans", sans-serif;
 }
 
+hr {
+  border: 0.5px solid lightgray;
+}
+
+.external-link {
+  color: teal;
+  text-decoration: none;
+}
+
+.external-link:hover {
+  color: teal;
+  text-decoration: underline;
+}
+
 .container {
   display: flex;
   align-items: center;
