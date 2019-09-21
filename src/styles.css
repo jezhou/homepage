@@ -1,0 +1,35 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0px;
+}
+
+.App {
+  height: 100%;
+}
+
+.photo {
+  border-radius: 10px;
+}
+
+.title {
+  font-family: "Mansalva", sans-serif;
+  font-size: 50px;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.item-1 {
+  flex: 0 1 auto;
+  margin: 50px;
+}
