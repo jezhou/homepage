@@ -16,7 +16,9 @@ function App() {
       photos: [{ value: photoUrl }],
       aboutMe,
       currentLocation,
-      name: { formatted: fullName }
+      name: { formatted: fullName },
+      urls,
+      emails: [{ value: personalEmail }]
     } = data.entry[0];
 
     return (
@@ -30,9 +32,21 @@ function App() {
         </div>
         <div className="item-1">
           <h1 className="title">{preferredUsername || displayName}</h1>
-          <br />
           <p>Livin' it up in {currentLocation}.</p>
           <p>{aboutMe}</p>
+          {urls.map(({ value, title }) => (
+            <div>
+              <a className="external-link" href={value}>
+                {title}
+              </a>
+            </div>
+          ))}
+          <br />
+          <hr />
+          <br />
+          <a className="external-link" href={`mailto:${personalEmail}`}>
+            email me
+          </a>
         </div>
       </div>
     );

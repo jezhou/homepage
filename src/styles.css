@@ -18,8 +18,23 @@ body,
   font-size: 50px;
 }
 
-p {
+p,
+a {
   font-family: "Open Sans", sans-serif;
+}
+
+hr {
+  border: 0.5px solid lightgray;
+}
+
+.external-link {
+  color: teal;
+  text-decoration: none;
+}
+
+.external-link:hover {
+  color: teal;
+  text-decoration: underline;
 }
 
 .container {
@@ -32,4 +47,9 @@ p {
 .item-1 {
   flex: 0 1 auto;
   margin: 50px;
+}
+
+.credits {
+  margin-top: 50px;
+  color: lightgray;
 }
