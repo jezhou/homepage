@@ -16,7 +16,8 @@ function App() {
       photos: [{ value: photoUrl }],
       aboutMe,
       currentLocation,
-      name: { formatted: fullName }
+      name: { formatted: fullName },
+      urls
     } = data.entry[0];
 
     return (
@@ -33,6 +34,15 @@ function App() {
           <br />
           <p>Livin' it up in {currentLocation}.</p>
           <p>{aboutMe}</p>
+          {urls.map(({ value, title }) => (
+            <div>
+              <a href={value}>{title}</a>
+            </div>
+          ))}
+
+          <p className="credits">
+            <small>Made with CodeSandbox and Gravatar</small>
+          </p>
         </div>
       </div>
     );
