@@ -9,7 +9,6 @@ function App() {
   const data = useGravatar();
 
   if (data && data.entry) {
-    console.log(data.entry[0]);
     const {
       preferredUsername,
       displayName,
@@ -35,7 +34,7 @@ function App() {
           <p>Livin' it up in {currentLocation}.</p>
           <p>{aboutMe}</p>
           {urls.map(({ value, title }) => (
-            <div>
+            <div key={`${value}+${title}`}>
               <a className="external-link" href={value}>
                 {title}
               </a>
