@@ -17,11 +17,13 @@ function Homepage({
   return (
     <div className="App container">
       <div className="item-1 w3-animate-left">
-        <img
-          className="photo"
-          src={`${photoUrl}?s=400`}
-          alt={`${fullName}'s profile`}
-        />
+        <div className="photo-container">
+          <img
+            className="photo"
+            src={`${photoUrl}?s=400`}
+            alt={`${fullName}'s profile`}
+          />
+        </div>
       </div>
       <div className="item-1 w3-animate-right">
         <h1 className="title">{preferredUsername || displayName}</h1>
@@ -35,7 +37,7 @@ function Homepage({
           </div>
         ))}
         <hr />
-        <a className="external-link" href={`mailto:${personalEmail}`}>
+        <a className="contact external-link" href={`mailto:${personalEmail}`}>
           contact
         </a>
       </div>
