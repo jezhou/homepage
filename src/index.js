@@ -22,14 +22,14 @@ function App() {
 
     return (
       <div className="App container">
-        <div className="item-1">
+        <div className="item-1 w3-animate-left">
           <img
             className="photo"
             src={`${photoUrl}?s=400`}
             alt={`${fullName}'s profile`}
           />
         </div>
-        <div className="item-1">
+        <div className="item-1 w3-animate-right">
           <h1 className="title">{preferredUsername || displayName}</h1>
           <p>Livin' it up in {currentLocation}.</p>
           <p>{aboutMe}</p>
@@ -51,7 +51,7 @@ function App() {
     );
   }
 
-  return <div>Loading</div>;
+  return null;
 }
 
 const rootElement = document.getElementById("root");
