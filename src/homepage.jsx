@@ -25,8 +25,8 @@ function Homepage({
       </div>
       <div className="item-1 w3-animate-right">
         <h1 className="title">{preferredUsername || displayName}</h1>
-        <p>{aboutMe}</p>
         <p>{location}</p>
+        <p>{aboutMe}</p>
         {urls.map(({ value, title }) => (
           <div key={`${value}+${title}`}>
             <a className="external-link" href={value}>
