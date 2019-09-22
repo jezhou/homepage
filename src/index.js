@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Homepage from './homepage';
-
-import "./styles.css";
+import App from './app';
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Homepage />, rootElement);
+ReactDOM.render(<App />, rootElement);
