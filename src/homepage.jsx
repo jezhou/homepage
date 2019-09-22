@@ -36,7 +36,7 @@ function Homepage({
         ))}
         <hr />
         <a className="external-link" href={`mailto:${personalEmail}`}>
-            email me
+          contact
         </a>
       </div>
     </div>
