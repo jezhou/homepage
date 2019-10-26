@@ -1,5 +1,7 @@
 import React from 'react';
 import { string, arrayOf, shape } from 'prop-types';
+
+import Title from './title';
 import './styles.css';
 
 function Homepage({
@@ -16,7 +18,7 @@ function Homepage({
 
   return (
     <div className="App container">
-      <div className="item-1 w3-animate-left">
+      <div className="item-1">
         <div className="photo-container">
           <img
             className="photo"
@@ -25,14 +27,14 @@ function Homepage({
           />
         </div>
       </div>
-      <div className="item-1 w3-animate-right">
-        <h1 className="title">{preferredUsername || displayName}</h1>
+      <div className="item-1">
+        <Title title={preferredUsername || displayName} />
         <p>{location}</p>
         <p>{aboutMe}</p>
-        {urls.map(({ value, title }) => (
-          <div key={`${value}+${title}`}>
+        {urls.map(({ value, title: label }) => (
+          <div key={`${value}+${label}`}>
             <a className="external-link" href={value}>
-              {title}
+              {label}
             </a>
           </div>
         ))}
