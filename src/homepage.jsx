@@ -2,6 +2,7 @@ import React from 'react';
 import { string, arrayOf, shape } from 'prop-types';
 
 import Title from './title';
+import FlipCard from './flip_card';
 import './styles.css';
 
 function Homepage({
@@ -19,13 +20,16 @@ function Homepage({
   return (
     <div className="App container">
       <div className="item-1">
-        <div className="photo-container">
-          <img
-            className="photo"
-            src={`${photoUrl}?s=400`}
-            alt={`${fullName}'s profile`}
-          />
-        </div>
+        <FlipCard
+          front={() => (
+            <img
+              className="photo"
+              src={`${photoUrl}?s=400`}
+              alt={`${fullName}'s profile`}
+            />
+          )}
+          back={() => <div />}
+        />
       </div>
       <div className="item-1">
         <Title title={preferredUsername || displayName} />
