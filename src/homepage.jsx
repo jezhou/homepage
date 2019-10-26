@@ -1,9 +1,25 @@
 import React from 'react';
 import { string, arrayOf, shape } from 'prop-types';
+import { animated, useSpring } from 'react-spring';
 
 import Title from './title';
 import FlipCard from './flip_card';
 import './styles.css';
+
+function HandWave({ onAnimationEnd }) {
+  const wave = useSpring({
+    onRest: () => onAnimationEnd(),
+  });
+
+  return (
+    <animated.div style={{
+      width: '100%', textAlign: 'center', fontSize: '100px', ...wave,
+    }}
+    >
+      <p>👋</p>
+    </animated.div>
+  );
+}
 
 function Homepage({
   preferredUsername,
@@ -28,7 +44,7 @@ function Homepage({
               alt={`${fullName}'s profile`}
             />
           )}
-          back={() => <div />}
+          back={({ flipBack }) => <HandWave onAnimationEnd={flipBack} />}
         />
       </div>
       <div className="item-1">
