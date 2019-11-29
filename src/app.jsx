@@ -8,9 +8,7 @@ import Homepage from './homepage';
 export default function App() {
   const data = useGravatar();
 
-
-  // Make sure data loads
-  if (data && data.entry) {
+  if (data?.entry) {
     return (
       <Router>
         <Homepage path="/" {...data.entry[0]} />
