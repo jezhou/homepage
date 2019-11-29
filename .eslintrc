@@ -11,7 +11,10 @@
     {
       "files": ["*.js*"],
       "rules": {
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "react/static-property-placement": "off",
+        "react/state-in-constructor": "off",
+        "react/jsx-curly-newline": "off",
       }
     }
   ],
