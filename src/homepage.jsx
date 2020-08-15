@@ -1,6 +1,25 @@
 import React from 'react';
 import { string, arrayOf, shape } from 'prop-types';
+import { animated, useSpring } from 'react-spring';
+
+import Title from './title';
+import FlipCard from './flip_card';
 import './styles.css';
+
+function HandWave({ onAnimationEnd }) {
+  const wave = useSpring({
+    onRest: () => onAnimationEnd(),
+  });
+
+  return (
+    <animated.div style={{
+      width: '100%', textAlign: 'center', fontSize: '100px', ...wave,
+    }}
+    >
+      <p>👋</p>
+    </animated.div>
+  );
+}
 
 function Homepage({
   preferredUsername,
@@ -16,23 +35,26 @@ function Homepage({
 
   return (
     <div className="App container">
-      <div className="item-1 w3-animate-left">
-        <div className="photo-container">
-          <img
-            className="photo"
-            src={`${photoUrl}?s=400`}
-            alt={`${fullName}'s profile`}
-          />
-        </div>
+      <div className="item-1">
+        <FlipCard
+          front={() => (
+            <img
+              className="photo"
+              src={`${photoUrl}?s=400`}
+              alt={`${fullName}'s profile`}
+            />
+          )}
+          back={({ flipBack }) => <HandWave onAnimationEnd={flipBack} />}
+        />
       </div>
-      <div className="item-1 w3-animate-right">
-        <h1 className="title">{preferredUsername || displayName}</h1>
+      <div className="item-1">
+        <Title title={preferredUsername || displayName} />
         <p>{location}</p>
         <p>{aboutMe}</p>
-        {urls.map(({ value, title }) => (
-          <div key={`${value}+${title}`}>
+        {urls.map(({ value, title: label }) => (
+          <div key={`${value}+${label}`}>
             <a className="external-link" href={value}>
-              {title}
+              {label}
             </a>
           </div>
         ))}
